@@ -1,0 +1,138 @@
+openapi: 3.0.1
+info:
+  version: 1.0.11
+
+  title: Climate Web Service
+  description: REST api to store data from temperature sensors
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://beta.roger.com/v1
+
+tags:
+  - name: Users
+  - name: Homes
+  - name: Sensors
+
+components:
+  schemas:
+    Home:
+      description:
+        Home where sensors will be located
+      type: object
+      properties:
+        home_id:
+          type: integer
+          format: int32
+        owner_id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        address:
+          type: string
+        description:
+          type: string
+
+    Sensor:
+      type: object
+      properties:
+        sensor_id:
+          type: integer
+          format: int32
+        home_id:
+          type: integer
+          format: int32
+        room:
+          type: string
+
+
+    User:
+      type: object
+      properties:
+        user_id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        password:
+          type: string
+          format: password
+
+paths:
+  /users:
+    put:
+      tags:
+        - Users
+      operationId: putUser
+      description:
+        Creates a new user with the specified data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                password:
+                  type: string
+                  format: password
+      responses:
+        '200':
+          description:
+            User updated successfully.
+
+  /users/{user-id}:
+    parameters:
+      - name: "user-id"
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags:
+        - Users
+      operationId: getUserById
+      description:
+        Returns the specified user from the system
+      responses:
+        '200':
+          description:
+            Returned a list with the user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    post:
+      tags:
+        - Users
+      operationId: postUserById
+      description:
+        Updates an existing user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                password:
+                  type: string
+                  format: password
+      responses:
+        200:
+          description:
+            User updated successfully
+    delete:
+      tags:
+        - Users
+      operationId: deleteUserById
+      description:
+        Deletes an existing user
+      responses:
+        200:
+          description:
+            User deleted successfully
