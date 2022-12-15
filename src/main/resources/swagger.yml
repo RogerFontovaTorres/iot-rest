@@ -35,6 +35,7 @@ components:
         description:
           type: string
 
+
     Sensor:
       type: object
       properties:
@@ -136,68 +137,125 @@ paths:
         200:
           description:
             User deleted successfully
-
-  /sensors:
+  /homes:
     put:
       tags:
-        - Sensors
-      operationId: putSensor
+        - Homes
+      operationId: putHome
       description:
-        Creates new sensor with the specified data.
+        Create new home with the specified data.
       requestBody:
         required: true
         content:
           application/json:
             schema:
               properties:
-                home_id:
-                  type: integer
-                  format: int32
-                room:
+                name:
+                  type: string
+                address:
+                  type: string
+                description:
                   type: string
       responses:
         '200':
           description:
-            Sensor created successfully.
-  /sensors/home/{home-id}:
-    parameters:
-      - name: "home-id"
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int32
+            Home created successfully.
     get:
       tags:
-        - Sensors
-      operationId: getSensorsByHomeId
+        - Homes
+      operationId: getHomes
       description:
-        Returns a list of sensors for the specified home
+        Returns a list of all homes in the system
       responses:
         '200':
           description:
-            Returned a list of sensors
+            Returned a list of homes
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Sensor'
-  /sensors/{sensor-id}:
+                  $ref: '#/components/schemas/Home'
+
+  /homes/{home-id}:
     parameters:
-      - name: "sensor-id"
+      - name: "home-id"
         in: path
         required: true
         schema:
-          type: integer
-          format: int32
-    delete:
+          type: string
+    get:
       tags:
-        - Sensors
-      operationId: deleteSensorById
+        - Homes
+      operationId: getHomeById
       description:
-        Deletes an existing sensor
+        Returns the specified home from the system
+      responses:
+        '200':
+          description:
+            Returned a list with the home
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Home'
+    post:
+      tags:
+        - Homes
+      operationId: postHomeById
+      description:
+        Updates an existing home
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                address:
+                  type: string
+                description:
+                  type: string
       responses:
         200:
           description:
-            Sensor deleted successfully
+            Home updated successfully
+    delete:
+      tags:
+        - Homes
+      operationId: deleteHomeById
+      description:
+        Deletes an existing home
+      responses:
+        200:
+          description:
+            Home deleted successfully
+
+  /homes/search:
+    get:
+      tags:
+        - Homes
+      operationId: searchHomes
+      description:
+        Searches for homes using the specified search criteria
+      parameters:
+        - name: "search-address"
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: "search-description"
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description:
+            Returned a list of homes that match the search criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Home'

@@ -1,11 +1,10 @@
 package iot.home.service.iotrest.controllers;
 
 import iot.home.service.iotrest.entities.PutUserRequest;
-import iot.home.service.iotrest.entities.User;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+import iot.home.service.iotrest.entities.User;
 
 @RestController
 public class UsersController implements UsersApi {
@@ -17,7 +16,6 @@ public class UsersController implements UsersApi {
         user.setPassword("MyPassword");
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
     @Override
     public ResponseEntity<Void> postUserById(String userId, PutUserRequest putUserRequest) {
         return null;
