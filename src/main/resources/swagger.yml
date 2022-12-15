@@ -214,3 +214,31 @@ paths:
         200:
           description:
             Home deleted successfully
+  /homes/search:
+    get:
+      tags:
+        - Homes
+      operationId: searchHomes
+      description:
+        Searches for homes using the specified search criteria
+      parameters:
+        - name: "search-key"
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: "search-text"
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description:
+            Returned a list of homes that match the search criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Home'

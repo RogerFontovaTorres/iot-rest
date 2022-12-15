@@ -133,4 +133,32 @@ public interface HomesApi {
         @Parameter(name = "CreateHomeRequest", description = "", required = true) @Valid @RequestBody CreateHomeRequest createHomeRequest
     );
 
+
+    /**
+     * GET /homes/search
+     * Searches for homes using the specified search criteria
+     *
+     * @param searchKey  (optional)
+     * @param searchText  (optional)
+     * @return Returned a list of homes that match the search criteria (status code 200)
+     */
+    @Operation(
+        operationId = "searchHomes",
+        tags = { "Homes" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Returned a list of homes that match the search criteria", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Home.class))
+            })
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/homes/search",
+        produces = { "application/json" }
+    )
+    ResponseEntity<List<Home>> searchHomes(
+        @Parameter(name = "search-key", description = "") @Valid @RequestParam(value = "search-key", required = false) String searchKey,
+        @Parameter(name = "search-text", description = "") @Valid @RequestParam(value = "search-text", required = false) String searchText
+    );
+
 }
