@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7c6d99a-9d14-4b4a-a49d-c47b1e070b57" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/controllers/HomesController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.openapi-generator/swagger.yml-default.sha256" beforeDir="false" afterPath="$PROJECT_DIR$/.openapi-generator/swagger.yml-default.sha256" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/controllers/HomeApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/controllers/HomesApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/controllers/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/entities/CreateHomeRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/entities/Home.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/entities/PostHomeByIdRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/entities/PutUserRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/entities/Sensor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/entities/User.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/swagger.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/swagger.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/iot/home/service/iotrest/controllers/HomeApi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/iot/home/service/iotrest/controllers/HomesApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/iot/home/service/iotrest/controllers/HomesApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/iot/home/service/iotrest/controllers/UsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/iot/home/service/iotrest/controllers/UsersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/iot/home/service/iotrest/entities/CreateHomeRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/iot/home/service/iotrest/entities/PostHomeByIdRequest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/swagger.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/swagger.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -17,8 +32,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -27,12 +52,27 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;/home/artur/Desktop/GEI-UdL/copia-uni/Compu/iot-rest&quot;
+  <component name="ProjectId" id="2Ixb7VuhPJyMexVEzLoiEO21PPQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/artur/Desktop/GEI-UdL/copia-uni/Compu/iot-rest"
   }
-}</component>
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d7c6d99a-9d14-4b4a-a49d-c47b1e070b57" name="Changes" comment="" />
+      <created>1671126019568</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671126019568</updated>
+    </task>
     <servers />
   </component>
 </project>

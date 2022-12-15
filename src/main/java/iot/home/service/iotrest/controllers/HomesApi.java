@@ -5,8 +5,8 @@
  */
 package iot.home.service.iotrest.controllers;
 
-import iot.home.service.iotrest.entities.CreateHomeRequest;
 import iot.home.service.iotrest.entities.Home;
+import iot.home.service.iotrest.entities.PutHomeRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -34,30 +34,6 @@ import jakarta.annotation.Generated;
 @Validated
 @Tag(name = "homes", description = "the homes API")
 public interface HomesApi {
-
-    /**
-     * PUT /homes
-     * Create new home with the specified data.
-     *
-     * @param createHomeRequest  (required)
-     * @return Home created successfully. (status code 200)
-     */
-    @Operation(
-        operationId = "createHome",
-        tags = { "Homes" },
-        responses = {
-            @ApiResponse(responseCode = "200", description = "Home created successfully.")
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.PUT,
-        value = "/homes",
-        consumes = { "application/json" }
-    )
-    ResponseEntity<Void> createHome(
-        @Parameter(name = "CreateHomeRequest", description = "", required = true) @Valid @RequestBody CreateHomeRequest createHomeRequest
-    );
-
 
     /**
      * DELETE /homes/{home-id}
@@ -109,7 +85,7 @@ public interface HomesApi {
 
 
     /**
-     * GET /homes/list
+     * GET /homes
      * Returns a list of all homes in the system
      *
      * @return Returned a list of homes (status code 200)
@@ -125,7 +101,7 @@ public interface HomesApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/homes/list",
+        value = "/homes",
         produces = { "application/json" }
     )
     ResponseEntity<List<Home>> getHomes(
@@ -138,7 +114,7 @@ public interface HomesApi {
      * Updates an existing home
      *
      * @param homeId  (required)
-     * @param createHomeRequest  (required)
+     * @param putHomeRequest  (required)
      * @return Home updated successfully (status code 200)
      */
     @Operation(
@@ -155,7 +131,31 @@ public interface HomesApi {
     )
     ResponseEntity<Void> postHomeById(
         @Parameter(name = "home-id", description = "", required = true) @PathVariable("home-id") String homeId,
-        @Parameter(name = "CreateHomeRequest", description = "", required = true) @Valid @RequestBody CreateHomeRequest createHomeRequest
+        @Parameter(name = "PutHomeRequest", description = "", required = true) @Valid @RequestBody PutHomeRequest putHomeRequest
+    );
+
+
+    /**
+     * PUT /homes
+     * Create new home with the specified data.
+     *
+     * @param putHomeRequest  (required)
+     * @return Home created successfully. (status code 200)
+     */
+    @Operation(
+        operationId = "putHome",
+        tags = { "Homes" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Home created successfully.")
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.PUT,
+        value = "/homes",
+        consumes = { "application/json" }
+    )
+    ResponseEntity<Void> putHome(
+        @Parameter(name = "PutHomeRequest", description = "", required = true) @Valid @RequestBody PutHomeRequest putHomeRequest
     );
 
 
@@ -163,8 +163,8 @@ public interface HomesApi {
      * GET /homes/search
      * Searches for homes using the specified search criteria
      *
-     * @param searchKey  (optional)
-     * @param searchText  (optional)
+     * @param searchAddress  (optional)
+     * @param searchDescription  (optional)
      * @return Returned a list of homes that match the search criteria (status code 200)
      */
     @Operation(
@@ -182,8 +182,8 @@ public interface HomesApi {
         produces = { "application/json" }
     )
     ResponseEntity<List<Home>> searchHomes(
-        @Parameter(name = "search-key", description = "") @Valid @RequestParam(value = "search-key", required = false) String searchKey,
-        @Parameter(name = "search-text", description = "") @Valid @RequestParam(value = "search-text", required = false) String searchText
+        @Parameter(name = "search-address", description = "") @Valid @RequestParam(value = "search-address", required = false) String searchAddress,
+        @Parameter(name = "search-description", description = "") @Valid @RequestParam(value = "search-description", required = false) String searchDescription
     );
 
 }

@@ -2,11 +2,10 @@ iot/home/service/iotrest/IotRestApplication.class
 iot/home/service/iotrest/entities/Home.class
 iot/home/service/iotrest/ServletInitializer.class
 iot/home/service/iotrest/controllers/HomesApi.class
-iot/home/service/iotrest/entities/CreateHomeRequest.class
-iot/home/service/iotrest/controllers/HomeApi.class
+iot/home/service/iotrest/controllers/HomesController.class
 iot/home/service/iotrest/entities/User.class
 iot/home/service/iotrest/entities/Sensor.class
 iot/home/service/iotrest/controllers/UsersApi.class
+iot/home/service/iotrest/entities/PutHomeRequest.class
 iot/home/service/iotrest/entities/PutUserRequest.class
-iot/home/service/iotrest/entities/PostHomeByIdRequest.class
 iot/home/service/iotrest/controllers/UsersController.class

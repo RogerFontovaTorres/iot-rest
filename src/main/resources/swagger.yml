@@ -141,7 +141,7 @@ paths:
     put:
       tags:
         - Homes
-      operationId: createHome
+      operationId: putHome
       description:
         Create new home with the specified data.
       requestBody:
@@ -160,6 +160,22 @@ paths:
         '200':
           description:
             Home created successfully.
+    get:
+      tags:
+        - Homes
+      operationId: getHomes
+      description:
+        Returns a list of all homes in the system
+      responses:
+        '200':
+          description:
+            Returned a list of homes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Home'
 
   /homes/{home-id}:
     parameters:
@@ -214,23 +230,6 @@ paths:
         200:
           description:
             Home deleted successfully
-  /homes/list:
-    get:
-      tags:
-        - Homes
-      operationId: getHomes
-      description:
-        Returns a list of all homes in the system
-      responses:
-        '200':
-          description:
-            Returned a list of homes
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Home'
 
   /homes/search:
     get:
@@ -240,12 +239,12 @@ paths:
       description:
         Searches for homes using the specified search criteria
       parameters:
-        - name: "search-key"
+        - name: "search-address"
           in: query
           required: false
           schema:
             type: string
-        - name: "search-text"
+        - name: "search-description"
           in: query
           required: false
           schema:

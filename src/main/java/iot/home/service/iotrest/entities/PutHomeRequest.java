@@ -16,12 +16,12 @@ import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
- * CreateHomeRequest
+ * PutHomeRequest
  */
 
-@JsonTypeName("createHome_request")
+@JsonTypeName("putHome_request")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class CreateHomeRequest {
+public class PutHomeRequest {
 
   @JsonProperty("name")
   private String name;
@@ -32,7 +32,7 @@ public class CreateHomeRequest {
   @JsonProperty("description")
   private String description;
 
-  public CreateHomeRequest name(String name) {
+  public PutHomeRequest name(String name) {
     this.name = name;
     return this;
   }
@@ -51,7 +51,7 @@ public class CreateHomeRequest {
     this.name = name;
   }
 
-  public CreateHomeRequest address(String address) {
+  public PutHomeRequest address(String address) {
     this.address = address;
     return this;
   }
@@ -70,7 +70,7 @@ public class CreateHomeRequest {
     this.address = address;
   }
 
-  public CreateHomeRequest description(String description) {
+  public PutHomeRequest description(String description) {
     this.description = description;
     return this;
   }
@@ -97,10 +97,10 @@ public class CreateHomeRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateHomeRequest createHomeRequest = (CreateHomeRequest) o;
-    return Objects.equals(this.name, createHomeRequest.name) &&
-        Objects.equals(this.address, createHomeRequest.address) &&
-        Objects.equals(this.description, createHomeRequest.description);
+    PutHomeRequest putHomeRequest = (PutHomeRequest) o;
+    return Objects.equals(this.name, putHomeRequest.name) &&
+        Objects.equals(this.address, putHomeRequest.address) &&
+        Objects.equals(this.description, putHomeRequest.description);
   }
 
   @Override
@@ -111,7 +111,7 @@ public class CreateHomeRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateHomeRequest {\n");
+    sb.append("class PutHomeRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
