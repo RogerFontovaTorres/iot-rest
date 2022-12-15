@@ -136,3 +136,68 @@ paths:
         200:
           description:
             User deleted successfully
+
+  /sensors:
+    put:
+      tags:
+        - Sensors
+      operationId: putSensor
+      description:
+        Creates new sensor with the specified data.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                home_id:
+                  type: integer
+                  format: int32
+                room:
+                  type: string
+      responses:
+        '200':
+          description:
+            Sensor created successfully.
+  /sensors/home/{home-id}:
+    parameters:
+      - name: "home-id"
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+    get:
+      tags:
+        - Sensors
+      operationId: getSensorsByHomeId
+      description:
+        Returns a list of sensors for the specified home
+      responses:
+        '200':
+          description:
+            Returned a list of sensors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sensor'
+  /sensors/{sensor-id}:
+    parameters:
+      - name: "sensor-id"
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+    delete:
+      tags:
+        - Sensors
+      operationId: deleteSensorById
+      description:
+        Deletes an existing sensor
+      responses:
+        200:
+          description:
+            Sensor deleted successfully
