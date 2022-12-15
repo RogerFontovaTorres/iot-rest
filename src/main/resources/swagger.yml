@@ -214,6 +214,24 @@ paths:
         200:
           description:
             Home deleted successfully
+  /homes/list:
+    get:
+      tags:
+        - Homes
+      operationId: getHomes
+      description:
+        Returns a list of all homes in the system
+      responses:
+        '200':
+          description:
+            Returned a list of homes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Home'
+
   /homes/search:
     get:
       tags:

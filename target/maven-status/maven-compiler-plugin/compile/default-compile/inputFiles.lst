@@ -4,6 +4,7 @@
 /home/artur/Desktop/GEI-UdL/copia-uni/Compu/iot-rest/src/main/java/iot/home/service/iotrest/entities/PutUserRequest.java
 /home/artur/Desktop/GEI-UdL/copia-uni/Compu/iot-rest/src/main/java/iot/home/service/iotrest/entities/User.java
 /home/artur/Desktop/GEI-UdL/copia-uni/Compu/iot-rest/src/main/java/iot/home/service/iotrest/entities/Sensor.java
+/home/artur/Desktop/GEI-UdL/copia-uni/Compu/iot-rest/src/main/java/iot/home/service/iotrest/controllers/HomeApi.java
 /home/artur/Desktop/GEI-UdL/copia-uni/Compu/iot-rest/src/main/java/iot/home/service/iotrest/entities/CreateHomeRequest.java
 /home/artur/Desktop/GEI-UdL/copia-uni/Compu/iot-rest/src/main/java/iot/home/service/iotrest/ServletInitializer.java
 /home/artur/Desktop/GEI-UdL/copia-uni/Compu/iot-rest/src/main/java/iot/home/service/iotrest/controllers/UsersApi.java

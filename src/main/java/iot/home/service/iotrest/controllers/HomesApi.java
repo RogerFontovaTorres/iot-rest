@@ -109,6 +109,31 @@ public interface HomesApi {
 
 
     /**
+     * GET /homes/list
+     * Returns a list of all homes in the system
+     *
+     * @return Returned a list of homes (status code 200)
+     */
+    @Operation(
+        operationId = "getHomes",
+        tags = { "Homes" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Returned a list of homes", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Home.class))
+            })
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/homes/list",
+        produces = { "application/json" }
+    )
+    ResponseEntity<List<Home>> getHomes(
+        
+    );
+
+
+    /**
      * POST /homes/{home-id}
      * Updates an existing home
      *

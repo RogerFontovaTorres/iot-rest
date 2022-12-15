@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7c6d99a-9d14-4b4a-a49d-c47b1e070b57" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.openapi-generator/swagger.yml-default.sha256" beforeDir="false" afterPath="$PROJECT_DIR$/.openapi-generator/swagger.yml-default.sha256" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/controllers/HomesApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/iot/home/service/iotrest/controllers/HomesApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/swagger.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/swagger.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/iot/home/service/iotrest/controllers/HomesApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/iot/home/service/iotrest/controllers/HomesApi.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/swagger.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/swagger.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
