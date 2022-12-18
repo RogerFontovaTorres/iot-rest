@@ -1,9 +1,11 @@
 package iot.home.service.iotrest.controllers;
 
-import iot.home.service.iotrest.entities.Home;
-import iot.home.service.iotrest.entities.PutHomeRequest;
+import iot.home.service.iotrest.dao.UserDAO;
+import iot.home.service.iotrest.dto.Home;
+import iot.home.service.iotrest.dto.PutHomeRequest;
+import iot.home.service.iotrest.services.HomeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +13,10 @@ import java.util.List;
 
 @RestController
 public class HomesController implements HomesApi{
+
+    @Autowired
+    HomeService homeService;
+
     @Override
     public ResponseEntity<Void> deleteHomeById(String homeId) {
         return null;
@@ -18,11 +24,7 @@ public class HomesController implements HomesApi{
 
     @Override
     public ResponseEntity<Home> getHomeById(String homeId) {
-        Home home = new Home();
-        home.setHomeId(1);
-        home.address("lleida");
-        home.description("casa lila");
-        return new ResponseEntity<>(home, HttpStatus.OK);
+        return new ResponseEntity<>(homeService.getHomeById(Integer.valueOf(homeId)), HttpStatus.OK);
     }
 
     @Override

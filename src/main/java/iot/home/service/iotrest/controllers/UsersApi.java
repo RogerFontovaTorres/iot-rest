@@ -5,8 +5,8 @@
  */
 package iot.home.service.iotrest.controllers;
 
-import iot.home.service.iotrest.entities.PutUserRequest;
-import iot.home.service.iotrest.entities.User;
+import iot.home.service.iotrest.dto.PutUserRequest;
+import iot.home.service.iotrest.dto.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;

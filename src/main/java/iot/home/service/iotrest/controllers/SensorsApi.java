@@ -5,8 +5,8 @@
  */
 package iot.home.service.iotrest.controllers;
 
-import iot.home.service.iotrest.entities.PutSensorRequest;
-import iot.home.service.iotrest.entities.Sensor;
+import iot.home.service.iotrest.dto.PutSensorRequest;
+import iot.home.service.iotrest.dto.Sensor;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
