@@ -1,10 +1,12 @@
 package iot.home.service.iotrest.controllers;
 
+import iot.home.service.iotrest.dao.UserDAO;
 import iot.home.service.iotrest.dto.PutUserRequest;
 import iot.home.service.iotrest.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 import iot.home.service.iotrest.dto.User;
@@ -17,15 +19,10 @@ public class UsersController implements UsersApi {
 
     @Override
     public ResponseEntity<User> getUserById(String userId) {
-//        Integer id = Integer.valueOf(userId);
-//        User user = usersService.getUserById(id);
 
-//        User user = new User();
-//        user.setUserId(1);
-//        user.setName("Jo");
-//        user.setPassword("pass");
+        UserDAO userDao = (UserDAO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        User user = usersService.getUserByName("Marc");
+        User user = usersService.getUserById(Integer.valueOf(userId));
 
 
         return new ResponseEntity<>(user, HttpStatus.OK);

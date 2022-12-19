@@ -30,6 +30,10 @@ public class UsersService {
         Optional<UserDAO> userDAO = usersRepository.findByName(name);
         return userMapper.userDaoToUserDto(userDAO.orElse(null));
     }
+    public UserDAO getUserDaoByName(String name){
+        Optional<UserDAO> userDAO = usersRepository.findByName(name);
+        return userDAO.orElse(null);
+    }
 
     public void updateUser(Integer id, PutUserRequest updateData){
         UserDAO userDao = usersRepository.findById(id).orElse(null);
