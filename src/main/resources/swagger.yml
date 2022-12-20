@@ -149,13 +149,8 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                name:
-                  type: string
-                address:
-                  type: string
-                description:
-                  type: string
+              $ref: '#/components/schemas/Home'
+
       responses:
         '200':
           description:
@@ -166,6 +161,21 @@ paths:
       operationId: getHomes
       description:
         Returns a list of all homes in the system
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                search_column:
+                  type: string
+                  enum:
+                    - address
+                    - description
+                text_search:
+                  type: string
+
       responses:
         '200':
           description:
@@ -190,6 +200,7 @@ paths:
       operationId: getHomeById
       description:
         Returns the specified home from the system
+
       responses:
         '200':
           description:
@@ -209,13 +220,7 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                name:
-                  type: string
-                address:
-                  type: string
-                description:
-                  type: string
+              $ref: '#/components/schemas/Home'
       responses:
         200:
           description:

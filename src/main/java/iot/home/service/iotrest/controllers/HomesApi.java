@@ -5,8 +5,8 @@
  */
 package iot.home.service.iotrest.controllers;
 
+import iot.home.service.iotrest.dto.GetHomesRequest;
 import iot.home.service.iotrest.dto.Home;
-import iot.home.service.iotrest.dto.PutHomeRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -88,6 +88,7 @@ public interface HomesApi {
      * GET /homes
      * Returns a list of all homes in the system
      *
+     * @param getHomesRequest  (optional)
      * @return Returned a list of homes (status code 200)
      */
     @Operation(
@@ -102,10 +103,11 @@ public interface HomesApi {
     @RequestMapping(
         method = RequestMethod.GET,
         value = "/homes",
-        produces = { "application/json" }
+        produces = { "application/json" },
+        consumes = { "application/json" }
     )
     ResponseEntity<List<Home>> getHomes(
-        
+        @Parameter(name = "GetHomesRequest", description = "") @Valid @RequestBody(required = false) GetHomesRequest getHomesRequest
     );
 
 
@@ -114,7 +116,7 @@ public interface HomesApi {
      * Updates an existing home
      *
      * @param homeId  (required)
-     * @param putHomeRequest  (required)
+     * @param home  (required)
      * @return Home updated successfully (status code 200)
      */
     @Operation(
@@ -131,7 +133,7 @@ public interface HomesApi {
     )
     ResponseEntity<Void> postHomeById(
         @Parameter(name = "home-id", description = "", required = true) @PathVariable("home-id") String homeId,
-        @Parameter(name = "PutHomeRequest", description = "", required = true) @Valid @RequestBody PutHomeRequest putHomeRequest
+        @Parameter(name = "Home", description = "", required = true) @Valid @RequestBody Home home
     );
 
 
@@ -139,7 +141,7 @@ public interface HomesApi {
      * PUT /homes
      * Create new home with the specified data.
      *
-     * @param putHomeRequest  (required)
+     * @param home  (required)
      * @return Home created successfully. (status code 200)
      */
     @Operation(
@@ -155,7 +157,7 @@ public interface HomesApi {
         consumes = { "application/json" }
     )
     ResponseEntity<Void> putHome(
-        @Parameter(name = "PutHomeRequest", description = "", required = true) @Valid @RequestBody PutHomeRequest putHomeRequest
+        @Parameter(name = "Home", description = "", required = true) @Valid @RequestBody Home home
     );
 
 

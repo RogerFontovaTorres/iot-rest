@@ -2,8 +2,6 @@ package iot.home.service.iotrest.config;
 
 import iot.home.service.iotrest.dao.UserDAO;
 import iot.home.service.iotrest.services.UsersService;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
