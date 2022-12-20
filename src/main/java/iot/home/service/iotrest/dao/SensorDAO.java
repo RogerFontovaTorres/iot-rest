@@ -36,7 +36,7 @@ public class SensorDAO {
         return homeId;
     }
 
-    public void setHomeId(Integer ownerId) {
+    public void setHomeId(Integer homeId) {
         this.homeId = homeId;
     }
 
