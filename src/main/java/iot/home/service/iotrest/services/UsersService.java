@@ -7,10 +7,8 @@ import iot.home.service.iotrest.dto.User;
 import iot.home.service.iotrest.repositories.UsersRepository;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Optional;
 
 @Service
@@ -44,9 +42,8 @@ public class UsersService {
             if(updateData.getPassword() != null){
                 userDao.setPassword(updateData.getPassword());
             }
-
+            usersRepository.save(userDao);
         }
-
     }
 
     public void saveUser(User user){
@@ -57,6 +54,7 @@ public class UsersService {
         UserDAO userDao = userMapper.userDtoToUserDao(user);
         usersRepository.save(userDao);
     }
-
-
+    public void deleteUser(Integer userId){
+        usersRepository.findById(userId).ifPresent(user -> usersRepository.delete(user));
+    }
 }
