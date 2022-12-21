@@ -1,9 +1,12 @@
 package iot.home.service.iotrest.config;
 
+import com.influxdb.client.InfluxDBClientFactory;
 import iot.home.service.iotrest.dao.UserDAO;
 import iot.home.service.iotrest.services.UsersService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.influxdb.InfluxDB;
+import org.influxdb.InfluxDBFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -71,11 +74,10 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(){
+    public UserDetailsService userDetailsService() {
         return username -> {
             UserDAO user = usersService.getUserDaoByName(username);
             return user;
         };
     }
-
 }

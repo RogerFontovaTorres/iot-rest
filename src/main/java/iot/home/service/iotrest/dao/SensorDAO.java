@@ -15,8 +15,7 @@ import lombok.NoArgsConstructor;
 public class SensorDAO {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
 
     @Column(name = "homeId")
     private Integer homeId;
@@ -24,11 +23,11 @@ public class SensorDAO {
     @Column(name = "room")
     private String room;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

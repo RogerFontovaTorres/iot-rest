@@ -5,8 +5,9 @@
  */
 package iot.home.service.iotrest.controllers;
 
-import iot.home.service.iotrest.dto.PutSensorRequest;
+import iot.home.service.iotrest.dto.PostPutReturn;
 import iot.home.service.iotrest.dto.Sensor;
+import iot.home.service.iotrest.dto.SensorPrediction;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -54,7 +55,7 @@ public interface SensorsApi {
         value = "/sensors/{sensor-id}"
     )
     ResponseEntity<Void> deleteSensorById(
-        @Parameter(name = "sensor-id", description = "", required = true) @PathVariable("sensor-id") Integer sensorId
+        @Parameter(name = "sensor-id", description = "", required = true) @PathVariable("sensor-id") String sensorId
     );
 
 
@@ -85,26 +86,55 @@ public interface SensorsApi {
 
 
     /**
+     * GET /sensors/{sensor-id}
+     * Returns a sensor
+     *
+     * @param sensorId  (required)
+     * @return Returned a sensors (status code 200)
+     */
+    @Operation(
+        operationId = "getSensorsById",
+        tags = { "Sensors" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "Returned a sensors", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = SensorPrediction.class))
+            })
+        }
+    )
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/sensors/{sensor-id}",
+        produces = { "application/json" }
+    )
+    ResponseEntity<List<SensorPrediction>> getSensorsById(
+        @Parameter(name = "sensor-id", description = "", required = true) @PathVariable("sensor-id") String sensorId
+    );
+
+
+    /**
      * PUT /sensors
      * Creates new sensor with the specified data.
      *
-     * @param putSensorRequest  (required)
+     * @param sensor  (required)
      * @return Sensor created successfully. (status code 200)
      */
     @Operation(
         operationId = "putSensor",
         tags = { "Sensors" },
         responses = {
-            @ApiResponse(responseCode = "200", description = "Sensor created successfully.")
+            @ApiResponse(responseCode = "200", description = "Sensor created successfully.", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = PostPutReturn.class))
+            })
         }
     )
     @RequestMapping(
         method = RequestMethod.PUT,
         value = "/sensors",
+        produces = { "application/json" },
         consumes = { "application/json" }
     )
-    ResponseEntity<Void> putSensor(
-        @Parameter(name = "PutSensorRequest", description = "", required = true) @Valid @RequestBody PutSensorRequest putSensorRequest
+    ResponseEntity<PostPutReturn> putSensor(
+        @Parameter(name = "Sensor", description = "", required = true) @Valid @RequestBody Sensor sensor
     );
 
 }

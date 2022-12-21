@@ -3,6 +3,7 @@ package iot.home.service.iotrest.controllers;
 import iot.home.service.iotrest.dao.UserDAO;
 import iot.home.service.iotrest.dto.Home;
 import iot.home.service.iotrest.dto.PutHomeRequest;
+import iot.home.service.iotrest.repositories.HomeRepository;
 import iot.home.service.iotrest.services.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,13 @@ public class HomesController implements HomesApi{
 
     @Autowired
     HomeService homeService;
+
+    @Autowired
+    HomeRepository homeRepository;
+
+    public boolean checkHomeAccess(UserDAO user, Integer homeId){
+        return homeRepository.findHomeDAOByIdAndOwnerId(user.getId(), homeId) != null;
+    }
 
     @Override
     public ResponseEntity<Void> deleteHomeById(String homeId) {
