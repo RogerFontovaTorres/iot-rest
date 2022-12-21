@@ -37,6 +37,8 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .requestMatchers("/v1/auth")
                 .permitAll()
+                .requestMatchers("/v1/sing-up")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

@@ -3,6 +3,7 @@ package iot.home.service.iotrest.controllers;
 import iot.home.service.iotrest.dao.UserDAO;
 import iot.home.service.iotrest.dto.*;
 import iot.home.service.iotrest.services.HomeService;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,33 +38,23 @@ public class HomesController implements HomesApi{
     }
 
     @Override
-    public ResponseEntity<List<Home>> getHomes(GetHomesRequest getHomesRequest) {
-        // TODO
+    public ResponseEntity<List<Home>> getHomes(String textSearch, String searchColumn) {
         UserDAO userDao = (UserDAO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<Home> homes = homeService.getHomes(getHomesRequest, userDao.getId());
-        return new ResponseEntity<>(homes, HttpStatus.OK);
-    }
+        List<Home> homes = homeService.getHomes(textSearch, searchColumn, userDao.getId());
+        return new ResponseEntity<>(homes, HttpStatus.OK);    }
 
     @Override
-    public ResponseEntity<Void> postHomeById(String homeId, Home home) {
-        UserDAO userDao = (UserDAO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(home.getOwnerId() != null && userDao.getId().equals(home.getOwnerId())){
-            homeService.updateHome(home);
-        }
-        return null;
+    public ResponseEntity<Void> postHomeById(String homeId, PostHomeByIdRequest postHomeByIdRequest) {
+        homeService.updateHome(Integer.valueOf(homeId), postHomeByIdRequest.id(Integer.valueOf(homeId)));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @Override
-    public ResponseEntity<Void> putHome(Home home) {
-        UserDAO userDao = (UserDAO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(home.getOwnerId() != null && userDao.getId().equals(home.getOwnerId())){
-            homeService.saveHome(home);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
 
     @Override
-    public ResponseEntity<List<Home>> searchHomes(String searchAddress, String searchDescription) {
-        return null;
+    public ResponseEntity<Void> putHome(PutHomeRequest homeRequest) {
+        UserDAO userDao = (UserDAO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        homeService.saveHome(homeRequest, userDao.getId());
+        return new ResponseEntity<>(HttpStatus.OK);
     }
+
 }
