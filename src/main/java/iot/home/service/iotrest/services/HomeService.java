@@ -28,7 +28,6 @@ public class HomeService {
 
     public List<Home> getHomes(String textSearch, String searchColumn, Integer ownerId){
         List<HomeDAO> home;
-        System.out.println("here "+searchColumn+".");
         if(searchColumn != null && textSearch != null){
             switch(searchColumn){
                 case "address":
@@ -46,7 +45,6 @@ public class HomeService {
             }
             return returnHomes;
         }else {
-            System.out.println("noo");
             List<Home> returnHomes = new ArrayList<>();
             for(HomeDAO homeDao : homeRepository.findHomeDAOByOwnerId(ownerId)){
                 returnHomes.add(homeMapper.homeDaoToHomeDto(homeDao));
