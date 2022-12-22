@@ -9,6 +9,6 @@ public interface HomeRepository extends JpaRepository<HomeDAO, Integer> {
     HomeDAO findHomeDAOByIdAndOwnerId(Integer id, Integer ownerId);
     List<HomeDAO> findHomeDAOByOwnerId(Integer ownerId);
 
-    List<HomeDAO> findHomeDAOByOwnerIdAndDescription(Integer ownerId, String description);
-    List<HomeDAO> findHomeDAOByOwnerIdAndAddress(Integer ownerId, String address);
+    List<HomeDAO> findHomeDAOByOwnerIdAndDescriptionContaining(Integer ownerId, String description);
+    List<HomeDAO> findHomeDAOByOwnerIdAndAddressContaining(Integer ownerId, String address);
 }

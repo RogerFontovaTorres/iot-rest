@@ -31,10 +31,10 @@ public class HomeService {
         if(searchColumn != null && textSearch != null){
             switch(searchColumn){
                 case "address":
-                    home = homeRepository.findHomeDAOByOwnerIdAndAddress(ownerId, textSearch);
+                    home = homeRepository.findHomeDAOByOwnerIdAndAddressContaining(ownerId, textSearch);
                     break;
                 case "description":
-                    home = homeRepository.findHomeDAOByOwnerIdAndDescription(ownerId, textSearch);
+                    home = homeRepository.findHomeDAOByOwnerIdAndDescriptionContaining(ownerId, textSearch);
                     break;
                 default:
                     return new ArrayList<>();
