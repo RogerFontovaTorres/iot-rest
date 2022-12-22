@@ -15,11 +15,11 @@ import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
- * Sensor
+ * SensorPrediction
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class Sensor {
+public class SensorPrediction {
 
   @JsonProperty("sensor_id")
   private String sensorId;
@@ -30,7 +30,10 @@ public class Sensor {
   @JsonProperty("room")
   private String room;
 
-  public Sensor sensorId(String sensorId) {
+  @JsonProperty("temperature")
+  private Double temperature;
+
+  public SensorPrediction sensorId(String sensorId) {
     this.sensorId = sensorId;
     return this;
   }
@@ -49,7 +52,7 @@ public class Sensor {
     this.sensorId = sensorId;
   }
 
-  public Sensor homeId(Integer homeId) {
+  public SensorPrediction homeId(Integer homeId) {
     this.homeId = homeId;
     return this;
   }
@@ -68,7 +71,7 @@ public class Sensor {
     this.homeId = homeId;
   }
 
-  public Sensor room(String room) {
+  public SensorPrediction room(String room) {
     this.room = room;
     return this;
   }
@@ -87,6 +90,25 @@ public class Sensor {
     this.room = room;
   }
 
+  public SensorPrediction temperature(Double temperature) {
+    this.temperature = temperature;
+    return this;
+  }
+
+  /**
+   * Get temperature
+   * @return temperature
+  */
+  
+  @Schema(name = "temperature", required = false)
+  public Double getTemperature() {
+    return temperature;
+  }
+
+  public void setTemperature(Double temperature) {
+    this.temperature = temperature;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -95,24 +117,26 @@ public class Sensor {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Sensor sensor = (Sensor) o;
-    return Objects.equals(this.sensorId, sensor.sensorId) &&
-        Objects.equals(this.homeId, sensor.homeId) &&
-        Objects.equals(this.room, sensor.room);
+    SensorPrediction sensorPrediction = (SensorPrediction) o;
+    return Objects.equals(this.sensorId, sensorPrediction.sensorId) &&
+        Objects.equals(this.homeId, sensorPrediction.homeId) &&
+        Objects.equals(this.room, sensorPrediction.room) &&
+        Objects.equals(this.temperature, sensorPrediction.temperature);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sensorId, homeId, room);
+    return Objects.hash(sensorId, homeId, room, temperature);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Sensor {\n");
+    sb.append("class SensorPrediction {\n");
     sb.append("    sensorId: ").append(toIndentedString(sensorId)).append("\n");
     sb.append("    homeId: ").append(toIndentedString(homeId)).append("\n");
     sb.append("    room: ").append(toIndentedString(room)).append("\n");
+    sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
     sb.append("}");
     return sb.toString();
   }

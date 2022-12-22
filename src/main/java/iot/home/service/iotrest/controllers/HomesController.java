@@ -38,7 +38,7 @@ public class HomesController implements HomesApi{
     }
 
     @Override
-    public ResponseEntity<List<Home>> getHomes(String textSearch, String searchColumn) {
+    public ResponseEntity<List<Home>> getHomes(String searchColumn, String textSearch) {
         UserDAO userDao = (UserDAO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Home> homes = homeService.getHomes(textSearch, searchColumn, userDao.getId());
         return new ResponseEntity<>(homes, HttpStatus.OK);    }

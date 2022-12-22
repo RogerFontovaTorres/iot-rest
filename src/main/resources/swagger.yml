@@ -40,14 +40,26 @@ components:
       type: object
       properties:
         sensor_id:
-          type: integer
-          format: int32
+          type: string
         home_id:
           type: integer
           format: int32
         room:
           type: string
 
+    SensorPrediction:
+      type: object
+      properties:
+        sensor_id:
+          type: string
+        home_id:
+          type: integer
+          format: int32
+        room:
+          type: string
+        temperature:
+          type: number
+          format: double
 
     User:
       type: object
@@ -60,6 +72,12 @@ components:
         password:
           type: string
           format: password
+
+    PostPutReturn:
+      type: object
+      properties:
+        url:
+          type: string
 
 paths:
   /users:
@@ -265,16 +283,17 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                home_id:
-                  type: integer
-                  format: int32
-                room:
-                  type: string
+              $ref: '#/components/schemas/Sensor'
       responses:
         '200':
           description:
             Sensor created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostPutReturn'
+
+
   /sensors/home/{home-id}:
     parameters:
       - name: "home-id"
@@ -305,8 +324,7 @@ paths:
         in: path
         required: true
         schema:
-          type: integer
-          format: int32
+          type: string
     delete:
       tags:
         - Sensors
@@ -317,3 +335,19 @@ paths:
         200:
           description:
             Sensor deleted successfully
+    get:
+      tags:
+        - Sensors
+      operationId: getSensorsById
+      description:
+        Returns a sensor
+      responses:
+        '200':
+          description:
+            Returned a sensors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SensorPrediction'
